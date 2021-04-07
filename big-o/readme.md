@@ -4,7 +4,9 @@ How many steps the computer has to perfom for each function.
 ![big-o-complexity-chart.png](./images/big-o-complexity-chart.png)
 
 ## O(n)
-Linear time, the big O depends on the number n (number of inputs)
+For loops, while loops.
+
+Linear time, the big O depends on the number n (number of inputs).
 
 ```go
 func findNemo(arr []string) { // O(n)
@@ -71,6 +73,8 @@ func compressBoxes(boxes1, boxes2 []int) {
 ```
 
 ## O(n^2)
+2 nested loops.
+
 Use multiplication for nested loops.
 
 ```go
@@ -99,3 +103,58 @@ func logAllPairsOfArr(arr1, arr2 []string) {
 // O(a*b)
 ```
 
+## Big O rule 4: Drop Non Dominants
+
+```go
+func logAllElementsAndAllPairsOfArr(arr []string) {
+	for i := 0; i < len(arr); i++ { // O(n)
+		fmt.Println(arr[i])
+	}
+
+	for i := 0; i < len(arr); i++ { // O(n^2)
+		for j := 0; j < len(arr); j++ {
+			fmt.Println(arr[i], arr[j])
+		}
+	}
+}
+
+// O(n + n^2) => O(n^2)
+```
+
+## O(n!) (DONT write code have this complexity)
+
+## Programming pillars
+![programming-pillars.png](./images/programming-pillars.png)
+
+## Big O cheat sheet
+
+### Big Os
+- O(1) Constant - no loops
+- O(log(n)) Logarithmic - usually searching have log(n) if they are sorted (binary search) (not on hash maps though)
+- O(n) Linear - for loops, while loops
+- O(n*log(n)) Log linear - sorting operations usually
+- O(n^2) Quadratic - Two nested loops. Every element in a collection needs to be compared to ever other element.
+- O(2^n) Exponential - recursive algorithms that solve a problem of size n
+- O(n!) - You are adding a loop for every element.
+
+*Iterating through half a collection is still O(n)*
+
+*Two separate collections: O(a+b)*
+
+### What can cause time in a function?
+- Operations (+, -, *, /)
+- Comparisions (<, >, ==)
+- Looping (for, while)
+- Outside function calls
+
+### Rule book 
+- Rule 1: Always worst case
+- Rule 2: Remove constants
+- Rule 3: Different inputs should have different variables. 
+- Rule 4: Drop non-dominant terms
+
+### What causes space complexity?
+- Variables
+- Data structures
+- Function calls
+- Allocations 
