@@ -1,4 +1,4 @@
-package my_array
+package main
 
 type myStringArray struct {
 	items map[int]string
