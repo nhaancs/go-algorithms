@@ -14,5 +14,6 @@ func main() {
 	// fmt.Println("array search: ", arr.Search("Demo"))
 	// fmt.Println(arr.Access(0), arr)
 
-	fmt.Println(Reverse("hello world!"))
+	// fmt.Println(Reverse("hello world!"))
+	fmt.Println(MergeSortedArrays([]int{4,6,8}, []int{3,5,7,9}))
 }
