@@ -1,16 +1,18 @@
 package main
 
+import "big_o/demos"
+
 func main() {
 	arr := make([]string, 1000)
 	arr[999] = "nemo"
 	boxes := []string{"a", "b", "c", "d", "e"}
 
 	// O(n) 
-	findNemo(arr)
+	demos.FindNemo(arr)
 
 	// O(1)
-	logFirstTwoElements(arr)
+	demos.LogFirstTwoElements(arr)
 
 	// O(n^2)
-	logAllPairsOfArr(boxes)
+	demos.LogAllPairsOfArr(boxes)
 }

@@ -1,8 +1,8 @@
-package main
+package demos
 
 import "fmt"
 
-func logFirstTwoElements(arr []string) {
+func LogFirstTwoElements(arr []string) {
 	fmt.Println(arr[0])
 	fmt.Println(arr[1])
 }
