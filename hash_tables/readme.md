@@ -1,4 +1,5 @@
 # Hash tables
+Unordered
 
 ![hash table](./hash-table.jpg)
 ![hash table collision](./hash-table-collision.png)

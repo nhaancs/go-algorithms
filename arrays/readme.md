@@ -1,4 +1,5 @@
 # Arrays
+Ordered
 
 ## BigOs of operations on an array
 - Access O(1)
