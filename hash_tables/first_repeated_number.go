@@ -11,6 +11,8 @@ func FirstRepeatedNumber(arr []int) int {
 		return -1
 	}
 
+	// naive solution: nested loops => inefficient
+
 	// create a map has key is an int, and value is an bool
 	elementsMap := map[int]bool{}
 	// loop through the array
