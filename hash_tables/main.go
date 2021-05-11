@@ -15,4 +15,9 @@ func main() {
 	fmt.Println(ht.Get("efg"))
 	fmt.Println(ht.Get("klm"))
 	fmt.Println(ht.Keys())
+
+	fmt.Println(FirstRepeatedNumber([]int{}))
+	fmt.Println(FirstRepeatedNumber([]int{2, 5, 1, 2, 3, 5, 1, 2, 4}))
+	fmt.Println(FirstRepeatedNumber([]int{2, 1, 1, 2, 3, 3, 1, 2, 4}))
+	fmt.Println(FirstRepeatedNumber([]int{2, 3, 4, 5}))
 }
