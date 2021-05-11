@@ -20,4 +20,6 @@ func main() {
 	fmt.Println(FirstRepeatedNumber([]int{2, 5, 1, 2, 3, 5, 1, 2, 4}))
 	fmt.Println(FirstRepeatedNumber([]int{2, 1, 1, 2, 3, 3, 1, 2, 4}))
 	fmt.Println(FirstRepeatedNumber([]int{2, 3, 4, 5}))
+
+	fmt.Println(FirstRepeatedNumber2([]int{2, 5, 5, 1, 2, 3, 5, 1, 2, 4}))
 }
