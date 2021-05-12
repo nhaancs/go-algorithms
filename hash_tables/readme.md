@@ -1,5 +1,5 @@
 # Hash tables
-Unordered
+Fast at access, insert, delete but unordered and can have collisions
 
 ![hash table](./hash-table.jpg)
 ![hash table collision](./hash-table-collision.png)

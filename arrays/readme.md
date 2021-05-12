@@ -1,5 +1,5 @@
 # Arrays
-Ordered
+Ordered, fast at access but slow at insert, delete, search.
 
 ## BigOs of operations on an array
 - Access O(1)
