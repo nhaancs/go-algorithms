@@ -1,5 +1,5 @@
 # Linked lists & Doubly linked lists
-Fast insert, delete, items in linked list are ordered but not located right next to each other like array items.
+Fast insert, delete, flexible size, items in linked list are ordered but not located right next to each other like array items, it also uses more memory.
 
 ![linked list](./linked-list.jpg)
 
