@@ -14,6 +14,7 @@ func (ht *hashTable) Set(key string, value interface{}) {
 	if ht.data[addr] == nil {
 		ht.data[addr] = [][2]interface{}{}
 	}
+	// can use linked list here to delete item more efficient
 	ht.data[addr] = append(ht.data[addr], [2]interface{}{key, value})
 }
 
