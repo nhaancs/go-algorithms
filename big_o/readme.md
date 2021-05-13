@@ -1,10 +1,10 @@
 # Big O
 How many steps the computer has to perfom for each function.
 
-![big-o-complexity-chart.png](./images/big-o-complexity-chart.png)
+![big-o-complexity-chart.png](./images/big_o_complexity_chart.png)
 
 ## The 3 pillars of good code
-![programming-pillars.png](./images/programming-pillars.png)
+![programming-pillars.png](./images/programming_pillars.png)
 1. Readable
 2. Time complexity
 3. Space complexity

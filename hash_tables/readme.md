@@ -1,8 +1,8 @@
 # Hash tables
 Fast at access, insert, delete but unordered and can have collisions
 
-![hash table](./hash-table.jpg)
-![hash table collision](./hash-table-collision.png)
+![hash table](./hash_table.jpg)
+![hash table collision](./hash-table_collision.png)
 
 ## BigO
 Without collision
