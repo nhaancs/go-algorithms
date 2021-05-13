@@ -1,7 +1,7 @@
 # Linked lists & Doubly linked lists
 Fast insert, delete, flexible size, items in linked list are ordered but not located right next to each other like array items, it also uses more memory.
 
-![linked list](./linked_list.jpg)
+![linked list](./images/linked_list.jpg)
 
 ## BigO
 - prepend O(1)
@@ -11,7 +11,7 @@ Fast insert, delete, flexible size, items in linked list are ordered but not loc
 - delete O(n) // most case faster than in an array
 
 ## Single vs double linked list
-![single-vs-double-linked-list](./single_vs_double_linked_list.jpg)
+![single-vs-double-linked-list](./images/single_vs_double_linked_list.jpg)
 
 Single linked list:
 - Pros
