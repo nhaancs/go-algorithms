@@ -20,7 +20,7 @@ Perfect binary tree attributes:
 Properties:
 - Each node has a distinguished key which is unique in the tree.
 - A node can only have up to two children.
-- The key of any node is greater than all keys occurring in its left subtree and less than all keys occurring in its right subtree.
+- Decrease on the left and increase on the right. The key of any node is greater than all keys occurring in its left subtree and less than all keys occurring in its right subtree.
 
 Pros: 
 - Ordered
