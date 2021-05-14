@@ -153,3 +153,8 @@ func (bst *binarySearchTree) Remove(value int) {
 		return
 	}
 }
+
+// todo:
+// - implement recursive version
+// - support travase in pre-order, in-order, post-order
+// - https://flaviocopes.com/golang-data-structure-binary-search-tree/
