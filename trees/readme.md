@@ -28,6 +28,7 @@ Pros:
 - Better than O(n)
 - Flexible size
 - Better than hash tables because it has parent-children structure that preserves the relationships.
+
 Cons:
 - Searchings and lookups are inefficient on a very unbalanced binary search tree => O(n)
 - No O(1) operations

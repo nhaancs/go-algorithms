@@ -36,6 +36,7 @@ func (bst *binarySearchTree) Insert(value int) error {
 			}
 
 			currentNode = currentNode.Left
+			continue
 		}
 
 		if value > currentNode.Value { // Right
@@ -45,6 +46,7 @@ func (bst *binarySearchTree) Insert(value int) error {
 			}
 
 			currentNode = currentNode.Right
+			continue
 		}
 
 		if value == currentNode.Value {
@@ -75,10 +77,6 @@ func (bst *binarySearchTree) Lookup(value int) *bstNode {
 }
 
 func (bst *binarySearchTree) Remove(value int) {
-	if bst.Root == nil {
-		return
-	}
-
 	var parentNode *bstNode
 	currentNode := bst.Root
 	for currentNode != nil {
@@ -97,34 +95,41 @@ func (bst *binarySearchTree) Remove(value int) {
 		// value == currentNode.Value
 		// we have a match, get to work!
 
-		// option 1: no right child
+		// option 1: no right child // only left
 		if currentNode.Right == nil {
 			if parentNode == nil { // delete root node, root node does not have any right child
 				bst.Root = currentNode.Left // make the left child of the current root become the next root
 			} else {
-				// if parent > current value, make current left child a left child of parent
+				// if current < parent value, make current left child a left child of parent
 				if currentNode.Value < parentNode.Value {
+					// parentNode.Left is the currentNode in this case!!!
+					// currentNode is less than parent node => currentNode.Left is also less than parentNode
 					parentNode.Left = currentNode.Left
-					// if parent < current value, make current left child a right child of parent
-				} else {
+					// if current > parent value, make current left child a right child of parent
+				} else if currentNode.Value > parentNode.Value {
+					// parentNode.Right is the currentNode in this case!!!
+					// currentNode is greater than parent node => currentNode.Left is also greater than parentNode
 					parentNode.Right = currentNode.Left
 				}
 			}
-			// option 2: right child which does not have a left child
+			// option 2: right child which does not have a left child // only right
 		} else if currentNode.Right.Left == nil {
+			// now assign current left child to a left child of right child
 			currentNode.Right.Left = currentNode.Left
 			if parentNode == nil {
 				bst.Root = currentNode.Right
 			} else {
-				// if parent > current, make right child of the left the parent
+				// parentNode.Left is the currentNode in this case!!!
+				// if current < parent, make right child of the left the parent
 				if currentNode.Value < parentNode.Value {
 					parentNode.Left = currentNode.Right
-					// if parent < current, make right child a right child of the parent
+					// parentNode.Right is the currentNode in this case!!!
+					// if current > parent, make right child a right child of the parent
 				} else if currentNode.Value > parentNode.Value {
 					parentNode.Right = currentNode.Right
 				}
 			}
-			// option 3: right child that has a left child
+			// option 3: right child that has a left child // have both left and right
 		} else {
 			// find the right child's left most child
 			leftMost := currentNode.Right.Left
@@ -153,8 +158,3 @@ func (bst *binarySearchTree) Remove(value int) {
 		return
 	}
 }
-
-// todo:
-// - implement recursive version
-// - support travase in pre-order, in-order, post-order
-// - https://flaviocopes.com/golang-data-structure-binary-search-tree/
