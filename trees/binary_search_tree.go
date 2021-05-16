@@ -76,6 +76,7 @@ func (bst *binarySearchTree) Lookup(value int) *bstNode {
 	return nil
 }
 
+// todo: recheck logic??
 func (bst *binarySearchTree) Remove(value int) {
 	var parentNode *bstNode
 	currentNode := bst.Root
