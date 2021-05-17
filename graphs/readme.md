@@ -1,5 +1,11 @@
 # Graphs
 
+Pros:
+- Relationships
+
+Cons: 
+- Scaling is hard
+
 ![graph](./images/graph.jpg)
 
 ![kinds of graph](./images/kinds-of-graph.jpg)
