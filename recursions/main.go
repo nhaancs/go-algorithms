@@ -23,6 +23,6 @@ func main() {
 		FibonacciNumber(9), 
 		FibonacciNumber(10), 
 		FibonacciNumber(11), 
-		FibonacciNumber(12), 
+		FibonacciNumber(40), 
 	)
 }
