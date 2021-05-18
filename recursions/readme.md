@@ -22,3 +22,7 @@ Pros:
 Cons: 
 - Harder to read
 
+## When should we use recursions
+- When you are using a tree or converting something into a tree
+- Divide and conquer problems
+
