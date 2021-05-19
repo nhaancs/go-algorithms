@@ -14,3 +14,19 @@ func SelectionSort(arr []int) {
 	}
 }
 
+func SelectionSortRecursive(arr []int) {
+	length := len(arr)
+	if length < 2 {
+		return
+	}
+
+	minIndex := 0
+	for i := 0; i < length; i++ {
+		if arr[i] < arr[minIndex] {
+			minIndex = i
+		}
+	}
+	arr[0], arr[minIndex] = arr[minIndex], arr[0]
+	SelectionSortRecursive(arr[1:])
+}
+

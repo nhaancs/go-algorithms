@@ -7,7 +7,8 @@ func main() {
 	fmt.Println(arr)
 	// BubbleSort(arr)
 	// BubbleSortRecursive(arr)
-	SelectionSort(arr)
+	// SelectionSort(arr)
+	SelectionSortRecursive(arr)
 	fmt.Println(arr)
 }
 
