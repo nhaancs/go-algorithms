@@ -97,5 +97,44 @@ The Quicksort algorithm is based on a simple but clever idea: Given a list of it
 
 ![quicksort](./images/quicksort.jpg)
 
+## Radix & counting sort
+Only work for integer numbers
+
+## When to use
+### Bubble sort
+- Nope, used for education purpose only
+
+### Selection sort
+- Nope, used for education purpose only
+
+### Insertion sort
+- Have only a few items to sort
+- Items are mostly sorted
+
+### Merge sort
+- Need the worst case is always O(n log(n))
+- Don't care about space complexity (not sorting in memmory or [external sorting](https://en.wikipedia.org/wiki/External_sorting)) - O(n)
+
+### Merge sort
+- Need to pick the pivot carefullyl because the worst case will be O(n^2) for the pivot that is the largest or smallest item.
+- Need to care about space complexity - O(log(n))
+
+## Questions
+1. Sort 10 schools around your house by distance 
+    - Small items => Insertion sort
+2. eBay sorts listings by the current Bid amount 
+    - Bid amount is usually an integer number => Radix or counting sort
+3. Sort scores on ESPN 
+    - Usually decimal numbers, not so much data (don't need to care about performance in the worst case), sorting in memmory => Quick sort
+4. Massive database (can't fit all into memory) needs to sort through past year's user data 
+    - A lot of data (need to care about performance), usually not sorting in memmory => Merge Sort
+5. Almost sorted Udemy review data needs to update and add 2 new reviews 
+    - Data may be huge but they are almost sorted => Insertion Sort
+6. Temperature Records for the past 50 years in Canada 
+    - Radix or counting Sort, Quick sort if decimal places
+7. Large user name database needs to be sorted. Data is very random 
+    - Quick sort or merge sort if have enough memory
+8. You want to teach sorting 
+    - Bubble sort
 
  
