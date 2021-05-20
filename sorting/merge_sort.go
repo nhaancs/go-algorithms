@@ -20,7 +20,6 @@ func mergeSort(arr []int) []int {
 	middle := int(math.Floor(float64(length)/2))
 	left := arr[:middle]
 	right := arr[middle:]
-
 	// fmt.Println("middle", middle, "left: ", left, " - ", "right: ", right)
 
 	return merge(mergeSort(left), mergeSort(right))
@@ -30,7 +29,6 @@ func merge(left, right []int) []int {
 	result := []int{}
 	leftIndex := 0
 	rightIndex := 0
-
 	for leftIndex < len(left) && rightIndex < len(right) {
 		if left[leftIndex] < right[rightIndex] {
 			result = append(result, left[leftIndex])
