@@ -92,4 +92,10 @@ The following diagram from wikipedia shows the complete merge sort process for a
 
 ![merge sort](./images/merge-sort.png)
 
+## Quick sort
+The Quicksort algorithm is based on a simple but clever idea: Given a list of items, select any item from the list. This item is called the pivot. (In practice, I'll just use the first item in the list.) Move all the items that are smaller than the pivot to the beginning of the list, and move all the items that are larger than the pivot to the end of the list. Now, put the pivot between the two groups of items. This puts the pivot in the position that it will occupy in the final, completely sorted array. It will not have to be moved again. We'll refer to this procedure as QuicksortStep.
+
+![quicksort](./images/quicksort.jpg)
+
+
  

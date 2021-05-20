@@ -11,7 +11,8 @@ func main() {
 	// SelectionSortRecursive(arr)
 	// InsertionSort(arr)
 	// InsertionSortRecursive(arr)
-	// fmt.Println(arr)
-	fmt.Println(MergeSort(arr))
+	// MergeSort(arr)
+	QuickSort(arr)
+	fmt.Println(arr)
 }
 

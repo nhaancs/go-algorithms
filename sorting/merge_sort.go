@@ -1,11 +1,16 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
-func MergeSort(arr []int) []int {
+func MergeSort(arr []int) {
+	// todo: why `arr = mergeSort(arr)` not working?
+	// https://blog.golang.org/slices-intro
+	arr = append(arr[:0], mergeSort(arr)...)
+}
+
+func mergeSort(arr []int) []int {
 	length := len(arr)
 	if length <= 1 {
 		return arr
@@ -16,9 +21,9 @@ func MergeSort(arr []int) []int {
 	left := arr[:middle]
 	right := arr[middle:]
 
-	fmt.Println("middle", middle, "left: ", left, " - ", "right: ", right)
+	// fmt.Println("middle", middle, "left: ", left, " - ", "right: ", right)
 
-	return merge(MergeSort(left), MergeSort(right))
+	return merge(mergeSort(left), mergeSort(right))
 }
 
 func merge(left, right []int) []int {
