@@ -63,7 +63,33 @@ arr[] = 64 25 12 22 11
 Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
 
 To sort an array of size n in ascending order: 
+```
 1. Iterate from arr[1] to arr[n] over the array. 
 2. Compare the current element (key) to its predecessor. 
 3. If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element.
+```
 
+![insertionsort](./images/insertionsort.png)
+
+## Merge sort
+Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
+
+
+```
+MergeSort(arr[], l,  r)
+If r > l
+    1. Find the middle point to divide the array into two halves:  
+        middle m = l+ (r-l)/2
+    2. Call mergeSort for first half:   
+        Call mergeSort(arr, l, m)
+    3. Call mergeSort for second half: 
+        Call mergeSort(arr, m+1, r)
+    4. Merge the two halves sorted in step 2 and 3:
+        Call merge(arr, l, m, r)
+```
+
+The following diagram from wikipedia shows the complete merge sort process for an example array {38, 27, 43, 3, 9, 82, 10}. If we take a closer look at the diagram, we can see that the array is recursively divided into two halves till the size becomes 1. Once the size becomes 1, the merge processes come into action and start merging arrays back till the complete array is merged.
+
+![merge sort](./images/merge-sort.png)
+
+ 
