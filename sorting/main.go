@@ -9,7 +9,8 @@ func main() {
 	// BubbleSortRecursive(arr)
 	// SelectionSort(arr)
 	// SelectionSortRecursive(arr)
-	InsertionSort(arr)
+	// InsertionSort(arr)
+	InsertionSortRecursive(arr)
 	fmt.Println(arr)
 }
 
