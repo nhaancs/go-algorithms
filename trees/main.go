@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// bst := NewBinarySearchTree()
 	// bst.Insert(10)
@@ -16,6 +18,26 @@ func main() {
 	rbst.Insert(9, "9")
 	rbst.Insert(11, "11")
 	rbst.Insert(8, "8")
+	rbst.Insert(12, "12")
+	rbst.Insert(20, "20")
 	// fmt.Println(rbst.Search(9))
 	rbst.String()
+
+	fmt.Println("Pre-order traverse")
+	rbst.PreOrderTraverse(func(v interface{}) {
+		fmt.Print(v, " ")
+	})
+	fmt.Println()
+
+	fmt.Println("In-order traverse")
+	rbst.InOrderTraverse(func(v interface{}) {
+		fmt.Print(v, " ")
+	})
+	fmt.Println()
+
+	fmt.Println("Post-order traverse")
+	rbst.PostOrderTraverse(func(v interface{}) {
+		fmt.Print(v, " ")
+	})
+	fmt.Println()
 }
