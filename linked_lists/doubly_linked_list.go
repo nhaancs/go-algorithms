@@ -4,8 +4,8 @@ import "fmt"
 
 type node2 struct {
 	Value interface{}
-	Next *node2
-	Prev *node2
+	Next  *node2
+	Prev  *node2
 }
 
 func newNode2(value interface{}) *node2 {
@@ -13,8 +13,8 @@ func newNode2(value interface{}) *node2 {
 }
 
 type linkedList2 struct {
-	Head *node2
-	Tail *node2
+	Head   *node2
+	Tail   *node2
 	Length uint
 }
 
@@ -49,17 +49,16 @@ func (ll *linkedList2) Prepend(value interface{}) {
 }
 
 func (ll *linkedList2) Insert(index uint, value interface{}) {
-	if (index >= ll.Length) {
+	if index >= ll.Length {
 		ll.Append(value)
-		return 
+		return
 	}
 
-	if (index == 0) {
+	if index == 0 {
 		ll.Prepend(value)
 		return
 	}
 
-	
 	nodeAtIndex := ll.Get(index)
 	beforeNode := nodeAtIndex.Prev
 	insertedNode := newNode2(value)
@@ -74,7 +73,7 @@ func (ll *linkedList2) Insert(index uint, value interface{}) {
 }
 
 func (ll *linkedList2) Get(index uint) *node2 {
-	if (index > ll.Length-1) {
+	if index > ll.Length-1 {
 		return nil
 	}
 
@@ -97,14 +96,14 @@ func (ll *linkedList2) Remove(index uint) {
 		ll.Length--
 		return
 	}
-	
+
 	if index == ll.Length-1 {
 		ll.Tail = ll.Tail.Prev
 		ll.Tail.Next = nil
-		ll.Length-- 
+		ll.Length--
 		return
 	}
-	
+
 	removedNode := ll.Get(index)
 	removedNode.Prev.Next = removedNode.Next
 	removedNode.Next.Prev = removedNode.Next
@@ -113,11 +112,10 @@ func (ll *linkedList2) Remove(index uint) {
 
 func (ll *linkedList2) Print() {
 	arr := []interface{}{}
-	
+
 	for runner := ll.Head; runner != nil; runner = runner.Next {
 		arr = append(arr, *runner)
 	}
 
 	fmt.Println(arr)
 }
-

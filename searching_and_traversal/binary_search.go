@@ -9,7 +9,7 @@ func BinarySearch(sortedArr []int, key int) int {
 		return -1
 	}
 
-	mid := int(math.Floor(float64(len(sortedArr))/2))
+	mid := int(math.Floor(float64(len(sortedArr)) / 2))
 	if key == sortedArr[mid] {
 		return mid
 	}
@@ -17,11 +17,10 @@ func BinarySearch(sortedArr []int, key int) int {
 	if key < sortedArr[mid] {
 		return BinarySearch(sortedArr[:mid], key)
 	}
-	
+
 	if key > sortedArr[mid] {
 		return BinarySearch(sortedArr[mid+1:], key)
 	}
 
 	return -1
 }
-

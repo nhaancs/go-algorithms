@@ -47,14 +47,14 @@ func quickSortStep(A []int, lowIndex int, highIndex int) int {
 		if highIndex == lowIndex {
 			break
 		}
-		
-		// The number A[highIndex] is less than pivot. Move it into the available space at A[lowIndex], 
+
+		// The number A[highIndex] is less than pivot. Move it into the available space at A[lowIndex],
 		// leaving an available space at A[highIndex]!!!
 		A[lowIndex] = A[highIndex]
 		lowIndex++
 
-		//---------------------------------------------// 
-		
+		//---------------------------------------------//
+
 		// Move lowIndex up past numbers less than pivot. These numbers do not have to be moved.
 		for lowIndex < highIndex && A[lowIndex] <= pivot {
 			lowIndex++
@@ -62,13 +62,13 @@ func quickSortStep(A []int, lowIndex int, highIndex int) int {
 		if highIndex == lowIndex {
 			break
 		}
-		
-		// The number A[lowIndex] is greater than pivot. Move it into the available space at A[highIndex], 
+
+		// The number A[lowIndex] is greater than pivot. Move it into the available space at A[highIndex],
 		// leaving an available space at A[lowIndex]!!!
 		A[highIndex] = A[lowIndex]
 		highIndex--
 	}
-	
+
 	// At this point, lowIndex has become equal to highIndex, and there is an available space at that position.
 	// This position lies between numbers less than pivot and numbers greater than pivot.
 	// Put pivot in this space and return its location.

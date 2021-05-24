@@ -14,7 +14,7 @@ func main() {
 	// // bst.Remove(9)
 	// // fmt.Println(bst.Insert(8))
 	// fmt.Println(bst.Lookup(9))
-	
+
 	var rbst trees.RBinarySearchTree
 	rbst.Insert(10, "10")
 	rbst.Insert(8, "8")

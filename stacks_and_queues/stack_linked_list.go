@@ -44,7 +44,7 @@ func (stll *stackLinkedList) Pop() *stackNode {
 	if stll.length == 0 {
 		return nil
 	}
-	 
+
 	lastTop := stll.top
 	stll.top = lastTop.next
 	if stll.length == 1 {

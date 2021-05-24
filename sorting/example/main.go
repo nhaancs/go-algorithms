@@ -18,4 +18,3 @@ func main() {
 	sorting.QuickSort(arr)
 	fmt.Println(arr)
 }
-

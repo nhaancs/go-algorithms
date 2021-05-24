@@ -34,7 +34,7 @@ func (starr *stackArray) Pop() interface{} {
 	} else {
 		starr.data = starr.data[:totalItems-1]
 	}
-	
+
 	return lastTop
 }
 

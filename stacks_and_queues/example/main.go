@@ -19,7 +19,7 @@ func main() {
 	// fmt.Println(stll.Pop())
 	// fmt.Println(stll.Pop())
 	// stll.Print()
-	
+
 	// starr := stacks_and_queues.NewStackArray()
 	// starr.Push(1)
 	// starr.Push(2)
@@ -45,8 +45,7 @@ func main() {
 	// fmt.Println(qll.Peek())
 	// fmt.Println(qll.Dequeue())
 	// qll.Print()
-	
-	
+
 	qs := stacks_and_queues.NewQueueStack()
 	qs.Enqueue(1)
 	qs.Enqueue(2)

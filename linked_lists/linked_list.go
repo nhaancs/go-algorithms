@@ -4,7 +4,7 @@ import "fmt"
 
 type node struct {
 	Value interface{}
-	Next *node
+	Next  *node
 }
 
 func newNode(value interface{}) *node {
@@ -12,8 +12,8 @@ func newNode(value interface{}) *node {
 }
 
 type linkedList struct {
-	Head *node
-	Tail *node
+	Head   *node
+	Tail   *node
 	Length uint
 }
 
@@ -46,17 +46,17 @@ func (ll *linkedList) Prepend(value interface{}) {
 }
 
 func (ll *linkedList) Insert(index uint, value interface{}) {
-	if (index >= ll.Length) {
+	if index >= ll.Length {
 		ll.Append(value)
-		return 
+		return
 	}
 
-	if (index == 0) {
+	if index == 0 {
 		ll.Prepend(value)
 		return
 	}
 
-	rightBeforeInsertedNode := ll.Get(index-1)
+	rightBeforeInsertedNode := ll.Get(index - 1)
 	nodeAtInsertedIndex := rightBeforeInsertedNode.Next
 
 	insertedNode := newNode(value)
@@ -67,7 +67,7 @@ func (ll *linkedList) Insert(index uint, value interface{}) {
 }
 
 func (ll *linkedList) Get(index uint) *node {
-	if (index > ll.Length-1) {
+	if index > ll.Length-1 {
 		return nil
 	}
 
@@ -90,16 +90,16 @@ func (ll *linkedList) Remove(index uint) {
 		ll.Length--
 		return
 	}
-	
+
 	if index == ll.Length-1 {
-		itemNextToLast := ll.Get(ll.Length-2)
+		itemNextToLast := ll.Get(ll.Length - 2)
 		itemNextToLast.Next = nil
 		ll.Tail = itemNextToLast
-		ll.Length-- 
+		ll.Length--
 		return
 	}
-	
-	rightBeforeRemovedNode := ll.Get(index-1)
+
+	rightBeforeRemovedNode := ll.Get(index - 1)
 	removedNode := rightBeforeRemovedNode.Next
 	rightBeforeRemovedNode.Next = removedNode.Next
 
@@ -146,4 +146,3 @@ func (ll *linkedList) Reverse() {
 	ll.Tail = ll.Head
 	ll.Head = first
 }
-

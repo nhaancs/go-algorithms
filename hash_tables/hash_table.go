@@ -52,8 +52,7 @@ func (ht *hashTable) Keys() []interface{} {
 func (ht *hashTable) hashFn(key string) int {
 	hash := 0
 	for i, r := range key {
-		hash = (hash + int(r)*i)%ht.Size
+		hash = (hash + int(r)*i) % ht.Size
 	}
 	return hash
 }
-

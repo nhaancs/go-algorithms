@@ -19,13 +19,13 @@ func FirstRepeatedNumber(arr []int) int {
 	// loop through the array
 	for _, item := range arr {
 		// check if current element is in a map
-		if elementsMap[item] {// if yes, return this element
+		if elementsMap[item] { // if yes, return this element
 			return item
 		}
 		// if no, add this element to a map as a key, set the value to true
 		elementsMap[item] = true
 	}
-		
+
 	return -1
 }
 
@@ -42,12 +42,12 @@ func FirstRepeatedNumber2(arr []int) int {
 	for _, item := range arr {
 		elementsMap[item]++
 	}
-	
+
 	for _, item := range arr {
 		if elementsMap[item] > 1 {
 			return item
 		}
 	}
-		
+
 	return -1
 }

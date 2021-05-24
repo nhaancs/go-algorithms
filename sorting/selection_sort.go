@@ -4,7 +4,7 @@ func SelectionSort(arr []int) {
 	length := len(arr)
 	for i := 0; i < length; i++ {
 		minIndex := i
-		for j := i+1; j < length; j++ {
+		for j := i + 1; j < length; j++ {
 			if arr[j] < arr[minIndex] {
 				minIndex = j
 			}
@@ -29,4 +29,3 @@ func SelectionSortRecursive(arr []int) {
 	arr[0], arr[minIndex] = arr[minIndex], arr[0]
 	SelectionSortRecursive(arr[1:])
 }
-
