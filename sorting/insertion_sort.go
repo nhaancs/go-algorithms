@@ -1,4 +1,4 @@
-package main
+package sorting
 
 func InsertionSort(arr []int) {
 	for itemSorted := 0; itemSorted < len(arr); itemSorted++ {

@@ -1,4 +1,4 @@
-package main
+package recursions
 
 // Given an index N, return is the value at the that index of the Fibonacci sequence, where the sequence is:
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...

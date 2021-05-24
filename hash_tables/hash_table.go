@@ -1,25 +1,25 @@
-package main
+package hash_tables
 
 type hashTable struct {
-	size int
-	data [][][2]interface{}
+	Size int
+	Data [][][2]interface{}
 }
 
 func NewHashTable(size int) *hashTable {
-	return &hashTable{size: size, data: make([][][2]interface{}, size)}
+	return &hashTable{Size: size, Data: make([][][2]interface{}, size)}
 }
 
 func (ht *hashTable) Set(key string, value interface{}) {
 	addr := ht.hashFn(key)
-	if ht.data[addr] == nil {
-		ht.data[addr] = [][2]interface{}{}
+	if ht.Data[addr] == nil {
+		ht.Data[addr] = [][2]interface{}{}
 	}
 	// can use linked list here to delete item more efficient
-	ht.data[addr] = append(ht.data[addr], [2]interface{}{key, value})
+	ht.Data[addr] = append(ht.Data[addr], [2]interface{}{key, value})
 }
 
 func (ht *hashTable) Get(key string) interface{} {
-	currentBucket := ht.data[ht.hashFn(key)]
+	currentBucket := ht.Data[ht.hashFn(key)]
 	if currentBucket == nil {
 		return nil
 	}
@@ -36,7 +36,7 @@ func (ht *hashTable) Get(key string) interface{} {
 func (ht *hashTable) Keys() []interface{} {
 	keysArr := []interface{}{}
 
-	for _, bucket := range ht.data {
+	for _, bucket := range ht.Data {
 		if bucket == nil {
 			continue
 		}
@@ -52,7 +52,7 @@ func (ht *hashTable) Keys() []interface{} {
 func (ht *hashTable) hashFn(key string) int {
 	hash := 0
 	for i, r := range key {
-		hash = (hash + int(r)*i)%ht.size
+		hash = (hash + int(r)*i)%ht.Size
 	}
 	return hash
 }

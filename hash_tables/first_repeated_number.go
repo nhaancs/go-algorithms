@@ -1,4 +1,4 @@
-package main
+package hash_tables
 
 // Funtion to find the first repeated number in an given array
 // Input: array of number (positive)

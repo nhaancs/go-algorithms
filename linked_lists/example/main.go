@@ -1,7 +1,11 @@
 package main
 
+import (
+	"go_data_structures_algorithms/linked_lists"
+)
+
 func main() {
-	// linkedList := NewLinkedList()
+	// linkedList := linked_lists.NewLinkedList()
 	// linkedList.Append(10)
 	// linkedList.Append(11)
 	// linkedList.Append(12)
@@ -16,7 +20,7 @@ func main() {
 	// linkedList.Remove(0)
 	// linkedList.Print()
 
-	// linkedList2 := NewLinkedList2()
+	// linkedList2 := linked_lists.NewLinkedList2()
 	// linkedList2.Append(1)
 	// linkedList2.Append(2)
 	// linkedList2.Append(3)
@@ -27,7 +31,7 @@ func main() {
 	// linkedList2.Remove(3)
 	// linkedList2.Print()
 
-	linkedList := NewLinkedList()
+	linkedList := linked_lists.NewLinkedList()
 	linkedList.Append(10)
 	linkedList.Append(11)
 	linkedList.Append(12)

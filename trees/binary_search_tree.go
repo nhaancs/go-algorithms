@@ -1,4 +1,4 @@
-package main
+package trees
 
 import "errors"
 
@@ -8,7 +8,7 @@ type bstNode struct {
 	Right *bstNode
 }
 
-func NewBTSNode(value int) *bstNode {
+func NewBSTNode(value int) *bstNode {
 	return &bstNode{Value: value}
 }
 
@@ -21,7 +21,7 @@ func NewBinarySearchTree() *binarySearchTree {
 }
 
 func (bst *binarySearchTree) Insert(value int) error {
-	newNode := NewBTSNode(value)
+	newNode := NewBSTNode(value)
 	if bst.Root == nil {
 		bst.Root = newNode
 		return nil

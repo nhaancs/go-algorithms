@@ -1,4 +1,4 @@
-package main
+package searching_and_traversal
 
 import "math"
 

@@ -1,7 +1,7 @@
-package main
+package arrays
 
 type myStringArray struct {
-	items map[int]string
+	items    map[int]string
 	capacity int
 }
 
@@ -20,16 +20,18 @@ func (mia *myStringArray) Access(index int) string {
 	}
 	return mia.items[index]
 }
+
 // insertion
 func (mia *myStringArray) Insert(index int, value string) {
 	if index > mia.capacity-1 {
 		panic("index out of range")
 	}
-	for i := mia.capacity-1; i > index; i-- {
+	for i := mia.capacity - 1; i > index; i-- {
 		mia.items[i] = mia.items[i-1]
 	}
 	mia.items[index] = value
 }
+
 // deletion
 func (mia *myStringArray) Delete(index int) {
 	if index > mia.capacity-1 {
@@ -40,6 +42,7 @@ func (mia *myStringArray) Delete(index int) {
 		mia.items[i+1] = ""
 	}
 }
+
 // search
 func (mia *myStringArray) Search(value string) int {
 	for k, v := range mia.items {

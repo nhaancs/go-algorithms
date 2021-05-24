@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"go_data_structures_algorithms/arrays"
 )
 
 func main() {
-	// arr := NewMyStringArray(5)
+	// arr := arrays.NewMyStringArray(5)
 	// fmt.Println("initial array: ", arr)
 	// arr.Insert(3, "World")
 	// arr.Insert(0, "Hello")
@@ -15,5 +16,5 @@ func main() {
 	// fmt.Println(arr.Access(0), arr)
 
 	// fmt.Println(Reverse("hello world!"))
-	fmt.Println(MergeSortedArrays([]int{4,6,8}, []int{3,5,7,9}))
+	fmt.Println(arrays.MergeSortedArrays([]int{4, 6, 8}, []int{3, 5, 7, 9}))
 }

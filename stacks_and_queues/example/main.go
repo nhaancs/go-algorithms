@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"go_data_structures_algorithms/stacks_and_queues"
+)
 
 func main() {
-	// stll := NewStackLinkedList()
+	// stll := stacks_and_queues.NewStackLinkedList()
 	// stll.Push(1)
 	// stll.Push(2)
 	// stll.Push(3)
@@ -17,7 +20,7 @@ func main() {
 	// fmt.Println(stll.Pop())
 	// stll.Print()
 	
-	// starr := NewStackArray()
+	// starr := stacks_and_queues.NewStackArray()
 	// starr.Push(1)
 	// starr.Push(2)
 	// starr.Push(3)
@@ -31,7 +34,7 @@ func main() {
 	// fmt.Println(starr.Pop())
 	// starr.Print()
 
-	// qll := NewQueueLinkedList()
+	// qll := stacks_and_queues.NewQueueLinkedList()
 	// qll.Enqueue(1)
 	// qll.Enqueue(2)
 	// qll.Enqueue(3)
@@ -44,7 +47,7 @@ func main() {
 	// qll.Print()
 	
 	
-	qs := NewQueueStack()
+	qs := stacks_and_queues.NewQueueStack()
 	qs.Enqueue(1)
 	qs.Enqueue(2)
 	qs.Enqueue(3)

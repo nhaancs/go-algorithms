@@ -1,4 +1,4 @@
-package main
+package stacks_and_queues
 
 import "fmt"
 

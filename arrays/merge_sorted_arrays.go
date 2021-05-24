@@ -1,4 +1,4 @@
-package main
+package arrays
 
 // function to merge two sorted arrays into one array
 // input1: [4, 6, 8] - increasing order

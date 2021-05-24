@@ -1,4 +1,4 @@
-package main
+package arrays
 
 import (
 	"strings"
@@ -22,4 +22,4 @@ func Reverse(s string) string {
 
 	// join all elements in the second array into a string
 	return strings.Join(reverseArr, "")
-} 
+}

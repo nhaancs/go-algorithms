@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"go_data_structures_algorithms/trees"
+)
 
 func main() {
-	// bst := NewBinarySearchTree()
+	// bst := trees.NewBinarySearchTree()
 	// bst.Insert(10)
 	// bst.Insert(8)
 	// bst.Insert(9)
@@ -12,7 +15,7 @@ func main() {
 	// // fmt.Println(bst.Insert(8))
 	// fmt.Println(bst.Lookup(9))
 	
-	var rbst ItemBinarySearchTree
+	var rbst trees.RBinarySearchTree
 	rbst.Insert(10, "10")
 	rbst.Insert(8, "8")
 	rbst.Insert(9, "9")

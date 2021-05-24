@@ -1,4 +1,4 @@
-package main
+package trees
 
 // https://flaviocopes.com/golang-data-structure-binary-search-tree
 
@@ -16,14 +16,14 @@ type Node struct {
     right *Node //right
 }
 
-// ItemBinarySearchTree the binary search tree of Items
-type ItemBinarySearchTree struct {
+// RBinarySearchTree the binary search tree of Items
+type RBinarySearchTree struct {
     root *Node
     lock sync.RWMutex
 }
 
 // Insert inserts the interface{} t in the tree
-func (bst *ItemBinarySearchTree) Insert(key int, value interface{}) {
+func (bst *RBinarySearchTree) Insert(key int, value interface{}) {
     bst.lock.Lock()
     defer bst.lock.Unlock()
     n := &Node{key, value, nil, nil}
@@ -58,7 +58,7 @@ func insertNode(node, newNode *Node) error {
 }
 
 // InOrderTraverse visits all nodes with in-order traversing
-func (bst *ItemBinarySearchTree) InOrderTraverse(f func(interface{})) {
+func (bst *RBinarySearchTree) InOrderTraverse(f func(interface{})) {
     bst.lock.RLock()
     defer bst.lock.RUnlock()
     inOrderTraverse(bst.root, f)
@@ -74,7 +74,7 @@ func inOrderTraverse(n *Node, f func(interface{})) {
 }
 
 // PreOrderTraverse visits all nodes with pre-order traversing
-func (bst *ItemBinarySearchTree) PreOrderTraverse(f func(interface{})) {
+func (bst *RBinarySearchTree) PreOrderTraverse(f func(interface{})) {
     bst.lock.Lock()
     defer bst.lock.Unlock()
     preOrderTraverse(bst.root, f)
@@ -90,7 +90,7 @@ func preOrderTraverse(n *Node, f func(interface{})) {
 }
 
 // PostOrderTraverse visits all nodes with post-order traversing
-func (bst *ItemBinarySearchTree) PostOrderTraverse(f func(interface{})) {
+func (bst *RBinarySearchTree) PostOrderTraverse(f func(interface{})) {
     bst.lock.Lock()
     defer bst.lock.Unlock()
     postOrderTraverse(bst.root, f)
@@ -106,7 +106,7 @@ func postOrderTraverse(n *Node, f func(interface{})) {
 }
 
 // Min returns the interface{} with min value stored in the tree
-func (bst *ItemBinarySearchTree) Min() *interface{} {
+func (bst *RBinarySearchTree) Min() *interface{} {
     bst.lock.RLock()
     defer bst.lock.RUnlock()
     n := bst.root
@@ -122,7 +122,7 @@ func (bst *ItemBinarySearchTree) Min() *interface{} {
 }
 
 // Max returns the interface{} with max value stored in the tree
-func (bst *ItemBinarySearchTree) Max() *interface{} {
+func (bst *RBinarySearchTree) Max() *interface{} {
     bst.lock.RLock()
     defer bst.lock.RUnlock()
     n := bst.root
@@ -138,7 +138,7 @@ func (bst *ItemBinarySearchTree) Max() *interface{} {
 }
 
 // Search returns true if the interface{} t exists in the tree
-func (bst *ItemBinarySearchTree) Search(key int) bool {
+func (bst *RBinarySearchTree) Search(key int) bool {
     bst.lock.RLock()
     defer bst.lock.RUnlock()
     return search(bst.root, key)
@@ -159,7 +159,7 @@ func search(n *Node, key int) bool {
 }
 
 // Remove removes the interface{} with key `key` from the tree
-func (bst *ItemBinarySearchTree) Remove(key int) {
+func (bst *RBinarySearchTree) Remove(key int) {
     bst.lock.Lock()
     defer bst.lock.Unlock()
     remove(bst.root, key)
@@ -215,7 +215,7 @@ func remove(node *Node, key int) *Node {
 }
 
 // String prints a visual representation of the tree
-func (bst *ItemBinarySearchTree) String() {
+func (bst *RBinarySearchTree) String() {
     bst.lock.Lock()
     defer bst.lock.Unlock()
     fmt.Println("------------------------------------------------")

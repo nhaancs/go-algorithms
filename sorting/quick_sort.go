@@ -1,4 +1,4 @@
-package main
+package sorting
 
 /**
  * Apply quicksort to put the array elements between position lowIndex and position highIndex into increasing order.
