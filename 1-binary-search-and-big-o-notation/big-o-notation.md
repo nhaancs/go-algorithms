@@ -1,13 +1,12 @@
-# Big O
-How many steps the computer has to perfom for each function.
-
-![big-o-complexity-chart.png](images/big_o_complexity_chart.png)
+# Big O notation
 
 ## The 3 pillars of good code
-![programming-pillars.png](images/programming_pillars.png)
 1. Readable
 2. Time complexity
 3. Space complexity
+
+## Big O notation definition
+How many steps the computer has to perform for each function.
 
 ## Big Os
 - O(1) Constant - no loops
@@ -18,9 +17,9 @@ How many steps the computer has to perfom for each function.
 - O(2^n) Exponential - recursive algorithms that solve a problem of size n
 - O(n!) - You are adding a loop for every element. (DONT write code have this complexity)
 
-*Iterating through half a collection is still O(n)*
-
-*Two separate collections: O(a+b)*
+Notes:
+- *Iterating through half a collection is still O(n)*
+- *Two separate collections: O(a+b)*
 
 ## What can cause time in a function?
 - Operations (+, -, *, /)
@@ -28,14 +27,17 @@ How many steps the computer has to perfom for each function.
 - Looping (for, while)
 - Outside function calls
 
-## Rule book 
+## Rule book
 - Rule 1: Always worst case
 - Rule 2: Remove constants
-- Rule 3: Different inputs should have different variables. 
+- Rule 3: Different inputs should have different variables.
 - Rule 4: Drop non-dominant terms
 
 ## What causes space complexity?
 - Variables
 - Data structures
 - Function calls
-- Allocations 
+- Allocations
+
+
+![big-o-complexity-chart.png](images/big_o_complexity_chart.png)
