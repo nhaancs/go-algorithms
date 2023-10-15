@@ -1,14 +1,14 @@
 # Stacks and Queues
 Linear data structure, process 1 item at a time.
 
-![stacks and queues](./images/stacks_and_queues.jpg)
+![stacks and queues](images/stacks_and_queues.jpg)
 
 ## Stacks (LIFO)
 Example, a function call get in another function calls, the last one will be call first, data structure for undo actions.
 
 Implement with an array or a linked list are both ok. An array have a problem of double its size when reach the capacity, a linked list have a problem that it has to hold other information in each node.
 
-![javascript-runtime-environment](./images/javascript_runtime_environment.jpg)
+![javascript-runtime-environment](images/javascript_runtime_environment.jpg)
 
 ### BigO
 - Lookup O(n)

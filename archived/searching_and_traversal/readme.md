@@ -3,7 +3,7 @@
 ## Linear search
 BigO: O(n)
 
-![linear search](./images/linearsearch.jpg)
+![linear search](images/linearsearch.jpg)
 
 ## Binary search (with sorted data)
 BigO: O(log n)
@@ -12,13 +12,13 @@ We have to sort the list first (which also costs time)?
 
 => we can store data as a tree data structure instead of a linear data structure (like an array).
 
-![binary search](./images/binarysearch.jpg)
+![binary search](images/binarysearch.jpg)
 
-![binary search](./images/binarysearch2.jpg)
+![binary search](images/binarysearch2.jpg)
 
-![binary search](./images/binarysearch3.jpg)
+![binary search](images/binarysearch3.jpg)
 
-![binary search](./images/binarysearch4.jpg)
+![binary search](images/binarysearch4.jpg)
 
 ## Breadth-first search (BFS)
 Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root node (selecting some arbitrary node as the root node in the case of a graph), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.

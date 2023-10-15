@@ -69,7 +69,7 @@ To sort an array of size n in ascending order:
 3. If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element.
 ```
 
-![insertionsort](./images/insertionsort.png)
+![insertionsort](images/insertionsort.png)
 
 ## Merge sort
 Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
@@ -90,12 +90,12 @@ If r > l
 
 The following diagram from wikipedia shows the complete merge sort process for an example array {38, 27, 43, 3, 9, 82, 10}. If we take a closer look at the diagram, we can see that the array is recursively divided into two halves till the size becomes 1. Once the size becomes 1, the merge processes come into action and start merging arrays back till the complete array is merged.
 
-![merge sort](./images/merge-sort.png)
+![merge sort](images/merge-sort.png)
 
 ## Quick sort
 The Quicksort algorithm is based on a simple but clever idea: Given a list of items, select any item from the list. This item is called the pivot. (In practice, I'll just use the first item in the list.) Move all the items that are smaller than the pivot to the beginning of the list, and move all the items that are larger than the pivot to the end of the list. Now, put the pivot between the two groups of items. This puts the pivot in the position that it will occupy in the final, completely sorted array. It will not have to be moved again. We'll refer to this procedure as QuicksortStep.
 
-![quicksort](./images/quicksort.jpg)
+![quicksort](images/quicksort.jpg)
 
 ## Radix & counting sort
 Only work for integer numbers

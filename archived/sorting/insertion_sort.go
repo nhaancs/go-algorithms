@@ -23,6 +23,7 @@ func InsertionSortRecursive(arr []int) {
 Input: arr = [99 8 4 89 1], length = 5
 Call stack:
 insertionSortR(arr, 5) // insert arr[4] into arr[:4]
+
 	insertionSortR(arr, 4) // insert arr[3] into arr[:3]
 		insertionSortR(arr, 3) // insert arr[2] into arr[:2]
 			insertionSortR(arr, 2) // insert arr[1] into arr[:1]

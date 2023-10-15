@@ -1,15 +1,15 @@
 # Trees
 Applications: DOM, abstract syntax tree in programming languages, Facebook comments,...
 
-![tree](./images/tree.jpg)
+![tree](images/tree.jpg)
 
 ## Binary tree
 
-![binary tree](./images/binary_tree.jpg)
+![binary tree](images/binary_tree.jpg)
 
 ### Perfect binary tree vs full binary tree
 
-![perfect vs full binary tree](./images/perfect_vs_full_binary_tree.jpg)
+![perfect vs full binary tree](images/perfect_vs_full_binary_tree.jpg)
 
 Perfect binary tree attributes:
 - The number of total nodes on each level doubled as we move down the tree
@@ -53,7 +53,7 @@ A Binary Heap is a Binary Tree with following properties.
 1. It’s a complete tree (All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.
 2. A Binary Heap is either Min Heap or Max Heap. In a Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree. Max Binary Heap is similar to MinHeap.
 
-![binary_heap](./images/binary_heap.jpg)
+![binary_heap](images/binary_heap.jpg)
 
 BigO
 - Lookup O(n)
@@ -63,7 +63,7 @@ BigO
 A Binary heap can be used in any algorithms where ordering is important (priority queue).
 
 ### Priority queue
-![priority_queue](./images/priority_queue.jpg)
+![priority_queue](images/priority_queue.jpg)
 
 Pros:
 - Better than O(n)
@@ -77,5 +77,5 @@ Cons:
 ## Trie
 Trie is an efficient information reTrieval data structure. Using Trie, search complexities can be brought to optimal limit (key length).
 
-![trie](./images/trie.jpg)
+![trie](images/trie.jpg)
 
