@@ -1,7 +1,7 @@
 # Binary Search 
 
 ## Definition
-Binary search is an algorithm; its input is a sorted list of elements. If an element you’re looking for is in that list, binary search returns the position where it’s located. Otherwise, binary search returns null.
+Binary search is an algorithm; its input is a sorted list of elements. If an element you’re looking for is in that list, binary search returns the position where it’s located. Otherwise, binary search returns -1.
 
 ## Example
 - Phonebook lookup
