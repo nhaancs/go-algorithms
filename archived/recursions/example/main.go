@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/recursions"
+	"github.com/nhaancs/go-algorithms/archived/recursions"
 )
 
 func main() {

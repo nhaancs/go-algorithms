@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/sorting"
+	"github.com/nhaancs/go-algorithms/archived/sorting"
 )
 
 func main() {

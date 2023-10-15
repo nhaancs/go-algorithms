@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go_data_structures_algorithms/linked_lists"
+	"github.com/nhaancs/go-algorithms/archived/linked_lists"
 )
 
 func main() {

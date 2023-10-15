@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/searching_and_traversal"
+	"github.com/nhaancs/go-algorithms/archived/searching_and_traversal"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/hash_tables"
+	"github.com/nhaancs/go-algorithms/archived/hash_tables"
 )
 
 func main() {

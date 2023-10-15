@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/trees"
+	"github.com/nhaancs/go-algorithms/archived/trees"
 )
 
 func main() {

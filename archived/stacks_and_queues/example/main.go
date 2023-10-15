@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_data_structures_algorithms/stacks_and_queues"
+	"github.com/nhaancs/go-algorithms/archived/stacks_and_queues"
 )
 
 func main() {
