@@ -1,3 +1,3 @@
-module go_data_structures_algorithms
+module github.com/nhaancs/go-algorithms
 
-go 1.16
+go 1.21
