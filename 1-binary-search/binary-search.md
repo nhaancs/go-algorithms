@@ -23,4 +23,11 @@ log10(100) mean how many 10s do we multiply together to get 100? The answer is 2
 When we talk about running time in Big O notation, log always means log2.
 
 For a list of 8 elements, log 8 == 3, because 2^3 == 8. So for a list of 8 numbers, you would have to check 3 numbers at most. For a list of 1024 elements, log 1024 = 10, because 2^10 == 1024. So for a list of 1024 numbers, you’d have to check 10 numbers at most (instead of 1024).
- 
+
+### Exercises
+
+#### 1.1 Suppose you have a sorted list of 128 names, and you’re searching through it using binary search. What’s the maximum number of steps it would take? 
+log2(128) = 7
+
+#### 1.2 Suppose you double the size of the list. What’s the maximum number of steps now?
+log2(256) = 8
