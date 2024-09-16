@@ -21,3 +21,18 @@ The memory controller does the actual reading and writing to and from RAM.
 Even though the memory controller can jump between far-apart memory addresses quickly, programs tend to access memory that's nearby. So computers are tuned to get an extra speed boost when reading memory addresses that're close to each other by using cache which even faster than RAM. 
 
 When the processor asks for the contents of a given memory address, the memory controller also sends the contents of a handful of nearby memory addresses. And the processor puts all of it in the cache.
+
+## Binary numbers
+
+The number system we usually use (the one you probably learned in elementary school) is called base 10 (decimal), because each digit has ten possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0).
+
+![Decimal numbers](assets/base-10-numbers.svg)
+
+But computers don't have digits with ten possible values. They have bits with two possible values. So they use base 2 numbers (binary).
+
+![Binary numbers](assets/base-2-numbers.svg)
+
+So far we've been talking about unsigned integers. Here's how some other numbers could be stored:
+- Fractions: Store two numbers: the numerator and the denominator.
+- Decimals: Also two numbers: 1) the number with the decimal point taken out, and 2) the position where the decimal point goes (how many digits over from the leftmost digit).
+- Negative Numbers: Reserve the leftmost bit for expressing the sign of the number. 0 for positive and 1 for negative.
