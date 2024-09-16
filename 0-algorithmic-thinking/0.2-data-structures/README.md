@@ -45,3 +45,26 @@ The 256 possibilities we get with 1 byte are pretty limiting. So we usually use 
 - 64-bit integers have 2^64 possible values — more than 10 billion billion (10^19)
 
 If we have a 64-bit fixed-length integer, it doesn't matter if that integer is 0 or 193,457 — it still takes up the same amount of space in RAM: 64 bits.
+
+## Arrays
+
+An array is a collection of items stored at **contiguous** memory locations. The idea is to store multiple items of the **same size** together. Looking up the contents of a given array index is O(1) time.
+
+For example, we can store 5 8-bit integers in a single array variable.
+
+```
+nth item's memory address = address of array start + n
+```
+
+![Array](assets/array.svg)
+
+So how do we build an array of 64-bit (8 byte) integers on top of our 8-bit (1 byte) memory slots?
+
+We simply give each array index 8 address slots instead of 1.
+
+```
+nth item's memory address = address of array start + (n * size of each item in bytes)
+```
+
+![Array of 64-bit integers](assets/array-of-64-bit-integers.svg)
+
