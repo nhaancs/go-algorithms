@@ -68,3 +68,8 @@ nth item's memory address = address of array start + (n * size of each item in b
 
 ![Array of 64-bit integers](assets/array-of-64-bit-integers.svg)
 
+## Strings
+
+A string is an array of characters. Each character is usually 1 byte (8 bits) long.
+
+![String](assets/strings.svg)
