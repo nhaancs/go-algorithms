@@ -36,3 +36,12 @@ So far we've been talking about unsigned integers. Here's how some other numbers
 - Fractions: Store two numbers: the numerator and the denominator.
 - Decimals: Also two numbers: 1) the number with the decimal point taken out, and 2) the position where the decimal point goes (how many digits over from the leftmost digit).
 - Negative Numbers: Reserve the leftmost bit for expressing the sign of the number. 0 for positive and 1 for negative.
+
+## Fixed-width integers
+
+The 256 possibilities we get with 1 byte are pretty limiting. So we usually use 4 or 8 bytes (32 or 64 bits) for storing integers.
+
+- 32-bit integers have 2^32 possible values — more than 4 billion
+- 64-bit integers have 2^64 possible values — more than 10 billion billion (10^19)
+
+If we have a 64-bit fixed-length integer, it doesn't matter if that integer is 0 or 193,457 — it still takes up the same amount of space in RAM: 64 bits.
