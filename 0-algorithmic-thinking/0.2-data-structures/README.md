@@ -89,4 +89,19 @@ Tradeoffs:
 
 ![Pointers array](assets/pointers-array.svg)
 
+## Dynamic arrays
+
+A dynamic array is an array that can resize itself when it runs out of space.
+
+When a dynamic array is full, it doesn't have enough contiguous free memory to store new items. So it has to move to a new, larger location in memory.
+
+![Dynamic array](assets/dynamic-array-1.svg)
+
+![Dynamic array](assets/dynamic-array-2.svg)
+
+Advantages:
+- You don't need to specify the size ahead of time.
+
+Tradeoffs:
+- Som appends can be expensive.
 
