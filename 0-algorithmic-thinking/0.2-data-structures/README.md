@@ -68,6 +68,14 @@ nth item's memory address = address of array start + (n * size of each item in b
 
 ![Array of 64-bit integers](assets/array-of-64-bit-integers.svg)
 
+Advantages:
+- Cache-friendly. All items are stored next to each other in memory.
+- Lookups are O(1) time. We can jump right to the memory address of the item we're looking for.
+
+Tradeoffs:
+- We have to know the size of the array ahead of time.
+- We need enough uninterrupted free memory to store all items next to each other.
+
 ## Strings
 
 A string is an array of characters. Each character is usually 1 byte (8 bits) long.
@@ -95,13 +103,51 @@ A dynamic array is an array that can resize itself when it runs out of space.
 
 When a dynamic array is full, it doesn't have enough contiguous free memory to store new items. So it has to move to a new, larger location in memory.
 
+Append an item to a dynamic array that's full:
+
 ![Dynamic array](assets/dynamic-array-1.svg)
 
 ![Dynamic array](assets/dynamic-array-2.svg)
+
+1. Allocate a new, larger chunk of memory. Usually twice as big.
+2. Copy all items from the old memory location to the new one.
+3. Add the new item to the new memory location.
+4. Free the old memory location.
+
+
 
 Advantages:
 - You don't need to specify the size ahead of time.
 
 Tradeoffs:
 - Som appends can be expensive.
+- Expensive prepend operation.
+
+## Linked lists
+
+A linked list is a collection of items where each item points to the next one in the sequence.
+
+- Each item in a linked list is called a "node" with two components: The value and a pointer to the next item
+- The first item in the list is called the "head"
+- The last item in the list is called the "tail"
+- The last item in the list has a pointer to nothing (null)
+
+![Linked list](assets/linked-list.svg)
+
+
+It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list!
+
+We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list.
+
+![Linked list operations](assets/linked-list-operation.svg)
+
+Advantages:
+- Prepend is O(1) time if we keep a pointer to the head.
+- Append is O(1) time if we keep a pointer to the tail.
+- We don't need to know the size of the list ahead of time.
+
+Tradeoffs:
+- Not cache-friendly. Because the next item in the list could be anywhere in memory.
+- Lookups are O(n) time. We have to start at the head and follow the pointers until we find the item we're looking for.
+
 
