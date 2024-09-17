@@ -73,3 +73,20 @@ nth item's memory address = address of array start + (n * size of each item in b
 A string is an array of characters. Each character is usually 1 byte (8 bits) long.
 
 ![String](assets/strings.svg)
+
+## Pointers
+
+A pointer is a variable that stores the memory address of another variable.
+
+Array of pointers is an array of memory addresses.
+
+Advantages: 
+- Items don't have to be the same length. Each item can be any size.
+- We don't need enough uninterrupted free memory to store all items next to each other.
+
+Tradeoffs:
+- An array of pointers is not cache-friendly (but lookups in this array are still O(1))
+
+![Pointers array](assets/pointers-array.svg)
+
+
