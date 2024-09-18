@@ -150,4 +150,19 @@ Tradeoffs:
 - Not cache-friendly. Because the next item in the list could be anywhere in memory.
 - Lookups are O(n) time. We have to start at the head and follow the pointers until we find the item we're looking for.
 
+## Hash tables
+
+A hash table is a collection of key-value pairs. It uses a hash function to map keys to values.
+
+![Hash table](assets/hash-table.svg)
+
+Advantages:
+- Lookups, inserts, and deletes are O(1) time on average.
+
+Tradeoffs:
+- Hash collisions can be a problem, two keys might hash to the same key in the hash table which means some lookups could be a bit slow O(n). 
+
+![Hash table collisions](assets/hash-table-collisions.svg)
+
+We can use a linked list at each index to handle collisions. There are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short. Collisions are rare enough that on average lookups in a hash table are O(1) time
 
