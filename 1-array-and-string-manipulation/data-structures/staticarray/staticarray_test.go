@@ -31,17 +31,13 @@ func TestStringStaticArr_Lookup(t *testing.T) {
 		t.Errorf("Expected a but got %s", arr.Lookup(0))
 	}
 
-	if arr.Lookup(1) != "" {
-		t.Errorf("Expected empty string but got %s", arr.Lookup(1))
-	}
-
 	fmt.Println(arr)
 
 	defer func() {
 		_ = recover()
 	}()
 
-	arr.Lookup(2)
+	arr.Lookup(1)
 	t.Error("The code did not panic")
 }
 
@@ -77,10 +73,10 @@ func TestStringStaticArr_Insert(t *testing.T) {
 	t.Parallel()
 
 	arr := staticarray.New(4)
-	arr.Append("c")
+	arr.Append("d")
 	arr.Insert(0, "a")
 	arr.Insert(1, "b")
-	arr.Insert(3, "d")
+	arr.Insert(2, "c")
 
 	if arr.Lookup(0) != "a" {
 		t.Errorf("Expected a but got %s", arr.Lookup(0))
@@ -121,24 +117,15 @@ func TestStringStaticArr_Delete(t *testing.T) {
 	arr.Append("b")
 
 	arr.Delete(0)
-	arr.Delete(2)
 
 	if arr.Lookup(0) != "b" {
 		t.Errorf("Expected b but got %s", arr.Lookup(0))
-	}
-
-	if arr.Lookup(1) != "" {
-		t.Errorf("Expected empty string but got %s", arr.Lookup(1))
-	}
-
-	if arr.Lookup(2) != "" {
-		t.Errorf("Expected empty string but got %s", arr.Lookup(2))
 	}
 
 	defer func() {
 		_ = recover()
 	}()
 
-	arr.Delete(3)
+	arr.Delete(1)
 	t.Error("The code did not panic")
 }
