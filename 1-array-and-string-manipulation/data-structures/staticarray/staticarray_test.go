@@ -19,11 +19,6 @@ func TestStringStaticArr_New(t *testing.T) {
 	if arr.Capacity() != 3 {
 		t.Errorf("Expected %d but got %d", capacity, arr.Capacity())
 	}
-
-	if arr.Size() != 0 {
-		t.Errorf("Expected 0 but got %d", arr.Size())
-	}
-
 }
 
 func TestStringStaticArr_Lookup(t *testing.T) {
@@ -58,10 +53,6 @@ func TestStringStaticArr_Append(t *testing.T) {
 	arr.Append("b")
 	arr.Append("c")
 
-	if arr.Size() != 3 {
-		t.Errorf("Expected 3 but got %d", arr.Size())
-	}
-
 	if arr.Lookup(0) != "a" {
 		t.Errorf("Expected a but got %s", arr.Lookup(0))
 	}
@@ -85,14 +76,11 @@ func TestStringStaticArr_Append(t *testing.T) {
 func TestStringStaticArr_Insert(t *testing.T) {
 	t.Parallel()
 
-	arr := staticarray.New(3)
+	arr := staticarray.New(4)
 	arr.Append("c")
 	arr.Insert(0, "a")
 	arr.Insert(1, "b")
-
-	if arr.Size() != 3 {
-		t.Errorf("Expected 3 but got %d", arr.Size())
-	}
+	arr.Insert(3, "d")
 
 	if arr.Lookup(0) != "a" {
 		t.Errorf("Expected a but got %s", arr.Lookup(0))
@@ -106,6 +94,10 @@ func TestStringStaticArr_Insert(t *testing.T) {
 		t.Errorf("Expected c but got %s", arr.Lookup(2))
 	}
 
+	if arr.Lookup(3) != "d" {
+		t.Errorf("Expected d but got %s", arr.Lookup(2))
+	}
+
 	defer func() {
 		if v := recover(); v == nil {
 			t.Error("The code did not panic")
@@ -116,10 +108,9 @@ func TestStringStaticArr_Insert(t *testing.T) {
 				t.Error("The code did not panic")
 			}
 		}()
-		arr.Insert(3, "y")
+		arr.Insert(4, "y")
 	}()
 	arr.Insert(2, "x")
-
 }
 
 func TestStringStaticArr_Delete(t *testing.T) {
@@ -132,12 +123,8 @@ func TestStringStaticArr_Delete(t *testing.T) {
 	arr.Delete(0)
 	arr.Delete(2)
 
-	if arr.Size() != 1 {
-		t.Errorf("Expected 1 but got %d", arr.Size())
-	}
-
 	if arr.Lookup(0) != "b" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
+		t.Errorf("Expected b but got %s", arr.Lookup(0))
 	}
 
 	if arr.Lookup(1) != "" {

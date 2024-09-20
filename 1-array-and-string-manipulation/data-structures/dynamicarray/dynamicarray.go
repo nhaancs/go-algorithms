@@ -15,7 +15,7 @@ type stringDynamicArr struct {
 func New() *stringDynamicArr {
 	return &stringDynamicArr{
 		capacity: 1,
-		data:     make(map[uint]string, 1),
+		data:     make(map[uint]string),
 	}
 }
 
@@ -64,14 +64,10 @@ func (s *stringDynamicArr) Delete(index uint) {
 		panic("index out of range")
 	}
 
-	if index >= s.size {
-		return
-	}
-
-	for i := index; i < s.size-1; i++ {
+	for i := index; i < s.size; i++ {
 		s.data[i] = s.data[i+1]
 	}
-	s.data[s.size-1] = ""
+	delete(s.data, s.size-1)
 	s.size--
 }
 

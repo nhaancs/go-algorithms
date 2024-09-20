@@ -6,7 +6,6 @@ import (
 )
 
 type stringStaticArr struct {
-	size     uint
 	capacity uint
 	data     map[uint]string
 	mu       sync.Mutex
@@ -15,7 +14,7 @@ type stringStaticArr struct {
 func New(capacity uint) *stringStaticArr {
 	return &stringStaticArr{
 		capacity: capacity,
-		data:     make(map[uint]string, capacity),
+		data:     make(map[uint]string),
 	}
 }
 
@@ -30,11 +29,10 @@ func (s *stringStaticArr) Append(value string) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	if s.size >= s.capacity {
+	if s.size() >= s.capacity {
 		panic("array is full")
 	}
-	s.data[s.size] = value
-	s.size++
+	s.data[s.size()] = value
 }
 
 func (s *stringStaticArr) Insert(index uint, value string) {
@@ -45,15 +43,14 @@ func (s *stringStaticArr) Insert(index uint, value string) {
 		panic("index out of range")
 	}
 
-	if s.size >= s.capacity {
+	if s.size() >= s.capacity {
 		panic("array is full")
 	}
 
-	for i := s.size; i > index; i-- {
+	for i := s.size(); i > index; i-- {
 		s.data[i] = s.data[i-1]
 	}
 	s.data[index] = value
-	s.size++
 }
 
 func (s *stringStaticArr) Delete(index uint) {
@@ -64,19 +61,18 @@ func (s *stringStaticArr) Delete(index uint) {
 		panic("index out of range")
 	}
 
-	if index >= s.size {
+	if index >= s.size() {
 		return
 	}
 
-	for i := index; i < s.size-1; i++ {
+	for i := index; i < s.size(); i++ {
 		s.data[i] = s.data[i+1]
 	}
-	s.data[s.size-1] = ""
-	s.size--
+	delete(s.data, s.size()-1)
 }
 
-func (s *stringStaticArr) Size() uint {
-	return s.size
+func (s *stringStaticArr) size() uint {
+	return uint(len(s.data))
 }
 
 func (s *stringStaticArr) Capacity() uint {
@@ -85,7 +81,7 @@ func (s *stringStaticArr) Capacity() uint {
 
 func (s *stringStaticArr) String() string {
 	str := "[ "
-	for i := uint(0); i < s.size; i++ {
+	for i := uint(0); i < s.size(); i++ {
 		str += fmt.Sprintf("%d:%s ", i, s.data[i])
 	}
 	str += "]"
