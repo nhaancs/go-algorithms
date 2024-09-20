@@ -1,4 +1,4 @@
-package dynamic_array
+package dynamicarray
 
 import "fmt"
 

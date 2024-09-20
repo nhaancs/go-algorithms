@@ -62,6 +62,6 @@ h = log(2)(n + 1) is the height of a binary tree with n nodes.
 
 ## Convension with base
 
-- log n can be base 10 or 2 (in big O notation)
+- log n can be base 10 or 2 (in Big-O notation)
 - lg n is base 2 (sometimes)
 - ln n is base e

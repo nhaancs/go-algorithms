@@ -8,7 +8,7 @@ Binary search is an algorithm; its input is a sorted list of elements. If an ele
 - Dictionary lookup
 - Number guessing
 
-## Big O
+## Big-O
 
 In the worst case, binary search will take log2(n) steps to run.
 
@@ -20,7 +20,7 @@ log10(100) mean how many 10s do we multiply together to get 100? The answer is 2
 - 2^3 = 8 <=> log2(8) = 3
 - 2^4 = 16 <=> log2(16) = 4
 
-When we talk about running time in Big O notation, log always means log2.
+When we talk about running time in Big-O notation, log always means log2.
 
 For a list of 8 elements, log 8 == 3, because 2^3 == 8. So for a list of 8 numbers, you would have to check 3 numbers at most. For a list of 1024 elements, log 1024 = 10, because 2^10 == 1024. So for a list of 1024 numbers, you’d have to check 10 numbers at most (instead of 1024).
 

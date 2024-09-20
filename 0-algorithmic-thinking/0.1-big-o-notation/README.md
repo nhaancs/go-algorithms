@@ -1,12 +1,12 @@
-# Big O Notation
+# Big-O notation
 
 ## Definition
 
-Big O notation is used to describe the efficiency of an algorithm in terms of time and space complexity.
+Big-O notation is used to describe the efficiency of an algorithm in terms of time and space complexity.
 
-In timme complexity, Big O notation describes the amount of time taken by an algorithm to run relative to the size of the input (or "How many steps the computer has to perform for each function").
+In timme complexity, Big-O notation describes the amount of time taken by an algorithm to run relative to the size of the input (or "How many steps the computer has to perform for each function").
 
-In space complexity, Big O notation describes the amount of memory taken by an algorithm to run relative to the size of the input.
+In space complexity, Big-O notation describes the amount of memory taken by an algorithm to run relative to the size of the input.
 
 ## What can cause time in a function?
 
@@ -26,11 +26,11 @@ In space complexity, Big O notation describes the amount of memory taken by an a
 
 Don't include space taken up by the inputs to the function in the space complexity calculation.
 
-## Big Os
+## Big-Os
 
-![Big O Complexity Chart](assets/big_o_complexity_chart.png) 
+![Big-O Complexity Chart](assets/big_o_complexity_chart.png) 
 
-| Big O      | Name        | Description                                                                                                                                                                         |
+| Big-O      | Name        | Description                                                                                                                                                                         |
 |------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | O(1)       | Constant    | The complexity is constant, regardless of the size of the input.                                                                                                                    |
 | O(log n)   | Logarithmic | The complexity grows logarithmically with the size of the input. Example: searching on sorted collection (binary search).                                                           |

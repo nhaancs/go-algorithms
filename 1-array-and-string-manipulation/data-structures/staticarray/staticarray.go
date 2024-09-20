@@ -1,4 +1,4 @@
-package static_array
+package staticarray
 
 import "fmt"
 

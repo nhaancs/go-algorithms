@@ -105,8 +105,8 @@ To make room, dynamic arrays automatically make a new, bigger underlying array. 
 
 ## Code examples and exercises
 
-- [Code example of static array implementation in Go](../data_structures/static_array/static_array.go)
-- [Code example of dynamic array implementation in Go](../data_structures/dynamic_array/dynamic_array.go)
+- [Code example of static array implementation in Go](data-structures/staticarray)
+- [Code example of dynamic array implementation in Go](data-structures/dynamicarray)
 - [Exercises](exercises)
 
 
