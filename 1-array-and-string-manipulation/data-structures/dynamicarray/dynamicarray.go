@@ -1,11 +1,15 @@
 package dynamicarray
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 type stringDynamicArr struct {
 	size     uint
 	capacity uint
 	data     map[uint]string
+	mu       sync.Mutex
 }
 
 func New() *stringDynamicArr {
@@ -23,20 +27,26 @@ func (s *stringDynamicArr) Lookup(index uint) string {
 }
 
 func (s *stringDynamicArr) Append(value string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if s.size >= s.capacity {
-		s.Resize()
+		s.resize()
 	}
 	s.data[s.size] = value
 	s.size++
 }
 
 func (s *stringDynamicArr) Insert(index uint, value string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if index >= s.size {
 		panic("index out of range")
 	}
 
 	if s.size >= s.capacity {
-		s.Resize()
+		s.resize()
 	}
 
 	for i := s.size; i > index; i-- {
@@ -47,8 +57,15 @@ func (s *stringDynamicArr) Insert(index uint, value string) {
 }
 
 func (s *stringDynamicArr) Delete(index uint) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if index >= s.size {
 		panic("index out of range")
+	}
+
+	if index >= s.size {
+		return
 	}
 
 	for i := index; i < s.size-1; i++ {
@@ -58,13 +75,21 @@ func (s *stringDynamicArr) Delete(index uint) {
 	s.size--
 }
 
-func (s *stringDynamicArr) Resize() {
+func (s *stringDynamicArr) resize() {
 	s.capacity *= 2
 	newData := make(map[uint]string, s.capacity)
 	for i := uint(0); i < s.size; i++ {
 		newData[i] = s.data[i]
 	}
 	s.data = newData
+}
+
+func (s *stringDynamicArr) Size() uint {
+	return s.size
+}
+
+func (s *stringDynamicArr) Capacity() uint {
+	return s.capacity
 }
 
 func (s *stringDynamicArr) String() string {

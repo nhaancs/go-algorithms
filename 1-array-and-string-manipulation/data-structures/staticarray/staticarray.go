@@ -1,11 +1,15 @@
 package staticarray
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 type stringStaticArr struct {
 	size     uint
 	capacity uint
 	data     map[uint]string
+	mu       sync.Mutex
 }
 
 func New(capacity uint) *stringStaticArr {
@@ -23,6 +27,9 @@ func (s *stringStaticArr) Lookup(index uint) string {
 }
 
 func (s *stringStaticArr) Append(value string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if s.size >= s.capacity {
 		panic("array is full")
 	}
@@ -31,6 +38,9 @@ func (s *stringStaticArr) Append(value string) {
 }
 
 func (s *stringStaticArr) Insert(index uint, value string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if index >= s.capacity {
 		panic("index out of range")
 	}
@@ -47,8 +57,15 @@ func (s *stringStaticArr) Insert(index uint, value string) {
 }
 
 func (s *stringStaticArr) Delete(index uint) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if index >= s.capacity {
 		panic("index out of range")
+	}
+
+	if index >= s.size {
+		return
 	}
 
 	for i := index; i < s.size-1; i++ {
@@ -56,6 +73,14 @@ func (s *stringStaticArr) Delete(index uint) {
 	}
 	s.data[s.size-1] = ""
 	s.size--
+}
+
+func (s *stringStaticArr) Size() uint {
+	return s.size
+}
+
+func (s *stringStaticArr) Capacity() uint {
+	return s.capacity
 }
 
 func (s *stringStaticArr) String() string {
