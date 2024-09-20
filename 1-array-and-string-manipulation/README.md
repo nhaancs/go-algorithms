@@ -103,7 +103,11 @@ What if we try to append an item but our array's capacity is already full?
 
 To make room, dynamic arrays automatically make a new, bigger underlying array. Usually twice as big. Each item has to be individually copied into the new array.
 
+## Code examples and exercises
 
+- [Code example of static array implementation in Go](../data_structures/static_array/static_array.go)
+- [Code example of dynamic array implementation in Go](../data_structures/dynamic_array/dynamic_array.go)
+- [Exercises](exercises)
 
 
 
