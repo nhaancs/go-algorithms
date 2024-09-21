@@ -1,96 +1,129 @@
 package merging_meeting_times_test
 
 import (
+	merging_meeting_times "github.com/nhaancs/go-algorithms/1-array-and-string-manipulation/exercises/merging-meeting-times"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestMergeRanges(t *testing.T) {
-	_ = assert.New(t)
+	testCases := []struct {
+		name     string
+		input    []merging_meeting_times.Meeting
+		expected []merging_meeting_times.Meeting
+	}{
+		{
+			"meetings overlap",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 3},
+				{StartTime: 2, EndTime: 4},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 4},
+			},
+		},
+		{
+			"meetings touch",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 5, EndTime: 6},
+				{StartTime: 6, EndTime: 8},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 5, EndTime: 8},
+			},
+		},
+		{
+			"meeting contains other meeting",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 8},
+				{StartTime: 2, EndTime: 5},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 8},
+			},
+		},
+		{
+			"meetings stay separate",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 3},
+				{StartTime: 4, EndTime: 8},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 3},
+				{StartTime: 4, EndTime: 8},
+			},
+		},
+		{
+			"multiple merged meetings",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 4},
+				{StartTime: 2, EndTime: 5},
+				{StartTime: 5, EndTime: 8},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 8},
+			},
+		},
+		{
+			"meetings not sorted",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 5, EndTime: 8},
+				{StartTime: 1, EndTime: 4},
+				{StartTime: 6, EndTime: 8},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 4},
+				{StartTime: 5, EndTime: 8},
+			},
+		},
+		{
+			"one long meeting contains smaller meetings",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 10},
+				{StartTime: 2, EndTime: 5},
+				{StartTime: 6, EndTime: 8},
+				{StartTime: 9, EndTime: 10},
+				{StartTime: 10, EndTime: 12},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 12},
+			},
+		},
+		{
+			"sample input",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 0, EndTime: 1},
+				{StartTime: 3, EndTime: 5},
+				{StartTime: 4, EndTime: 8},
+				{StartTime: 10, EndTime: 12},
+				{StartTime: 9, EndTime: 10},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 0, EndTime: 1},
+				{StartTime: 3, EndTime: 8},
+				{StartTime: 9, EndTime: 12},
+			},
+		},
+		{
+			"empty input",
+			[]merging_meeting_times.Meeting{},
+			[]merging_meeting_times.Meeting{},
+		},
+		{
+			"one meeting",
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 2},
+			},
+			[]merging_meeting_times.Meeting{
+				{StartTime: 1, EndTime: 2},
+			},
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			got := merging_meeting_times.MergeRanges(tc.input)
+			assert.Equal(t, tc.expected, got)
+		})
+	}
 }
-
-/*
-let desc = 'meetings overlap';
-let actual = mergeRanges([{ startTime: 1, endTime: 3 }, { startTime: 2, endTime: 4 }]);
-let expected = [{ startTime: 1, endTime: 4 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'meetings touch';
-actual = mergeRanges([{ startTime: 5, endTime: 6 }, { startTime: 6, endTime: 8 }]);
-expected = [{ startTime: 5, endTime: 8 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'meeting contains other meeting';
-actual = mergeRanges([{ startTime: 1, endTime: 8 }, { startTime: 2, endTime: 5 }]);
-expected = [{ startTime: 1, endTime: 8 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'meetings stay separate';
-actual = mergeRanges([{ startTime: 1, endTime: 3 }, { startTime: 4, endTime: 8 }]);
-expected = [{ startTime: 1, endTime: 3 }, { startTime: 4, endTime: 8 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'multiple merged meetings';
-actual = mergeRanges([
-  { startTime: 1, endTime: 4 },
-  { startTime: 2, endTime: 5 },
-  { startTime: 5, endTime: 8 },
-]);
-expected = [{ startTime: 1, endTime: 8 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'meetings not sorted';
-actual = mergeRanges([
-  { startTime: 5, endTime: 8 },
-  { startTime: 1, endTime: 4 },
-  { startTime: 6, endTime: 8 },
-]);
-expected = [{ startTime: 1, endTime: 4 }, { startTime: 5, endTime: 8 }];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'oneLongMeetingContainsSmallerMeetings';
-actual = mergeRanges([
-  { startTime: 1, endTime: 10 },
-  { startTime: 2, endTime: 5 },
-  { startTime: 6, endTime: 8 },
-  { startTime: 9, endTime: 10 },
-  { startTime: 10, endTime: 12 }
-]);
-expected = [
-  { startTime: 1, endTime: 12 }
-];
-assertArrayEquals(actual, expected, desc);
-
-desc = 'sample input';
-actual = mergeRanges([
-  { startTime: 0, endTime: 1 },
-  { startTime: 3, endTime: 5 },
-  { startTime: 4, endTime: 8 },
-  { startTime: 10, endTime: 12 },
-  { startTime: 9, endTime: 10 },
-]);
-expected = [
-  { startTime: 0, endTime: 1 },
-  { startTime: 3, endTime: 8 },
-  { startTime: 9, endTime: 12 },
-];
-assertArrayEquals(actual, expected, desc);
-
-function assertArrayEquals(a, b, desc) {
-  // Sort the keys in each meeting to avoid
-  // failing based on differences in key order.
-  orderedA = a.map( function(meeting) {
-    return JSON.stringify(meeting, Object.keys(meeting).sort());
-  });
-  orderedB = b.map( function(meeting) {
-    return JSON.stringify(meeting, Object.keys(meeting).sort());
-  });
-  const arrayA = JSON.stringify(orderedA);
-  const arrayB = JSON.stringify(orderedB);
-  if (arrayA !== arrayB) {
-    console.log(`${desc} ... FAIL: ${JSON.stringify(a)} != ${JSON.stringify(b)}`)
-  } else {
-    console.log(`${desc} ... PASS`);
-  }
-}
-*/
