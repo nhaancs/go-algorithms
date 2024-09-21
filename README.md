@@ -11,4 +11,6 @@ Data structures and algorithms implemented in Go.
 
 ### 1 - Array and string manipulation
 
-- [Array and string manipulation](1-array-and-string-manipulation/README.md)
+- [Reading](1-array-and-string-manipulation/README.md)
+- [Code implementation](1-array-and-string-manipulation/data-structures)
+- [Exercises & solutions](1-array-and-string-manipulation/exercises)
