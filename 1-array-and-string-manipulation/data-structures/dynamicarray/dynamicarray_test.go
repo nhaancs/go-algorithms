@@ -3,6 +3,7 @@ package dynamicarray_test
 import (
 	"fmt"
 	"github.com/nhaancs/go-algorithms/1-array-and-string-manipulation/data-structures/dynamicarray"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -10,18 +11,12 @@ func TestStringDynamicArr_New(t *testing.T) {
 	t.Parallel()
 
 	arr := dynamicarray.New()
+	assert.NotNil(t, arr)
+	assert.Equal(t, uint(0), arr.Size())
+	assert.Equal(t, uint(1), arr.Capacity())
 
-	if arr == nil {
-		t.Error("Failed to create new static array")
-	}
-
-	if arr.Size() != 0 {
-		t.Errorf("Expected 0 but got %d", arr.Size())
-	}
-
-	if arr.Capacity() != 1 {
-		t.Errorf("Expected 1 but got %d", arr.Capacity())
-	}
+	_, err := fmt.Println(arr)
+	assert.NoError(t, err)
 }
 
 func TestStringDynamicArr_Lookup(t *testing.T) {
@@ -29,19 +24,9 @@ func TestStringDynamicArr_Lookup(t *testing.T) {
 
 	arr := dynamicarray.New()
 	arr.Append("a")
+	assert.Equal(t, "a", arr.Lookup(0))
+	assert.Panics(t, func() { arr.Lookup(2) })
 
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	fmt.Println(arr)
-
-	defer func() {
-		_ = recover()
-	}()
-
-	arr.Lookup(2)
-	t.Error("The code did not panic")
 }
 
 func TestStringDynamicArr_Append(t *testing.T) {
@@ -50,47 +35,21 @@ func TestStringDynamicArr_Append(t *testing.T) {
 	arr := dynamicarray.New()
 	arr.Append("a")
 
-	if arr.Size() != 1 {
-		t.Errorf("Expected 1 but got %d", arr.Size())
-	}
-
-	if arr.Capacity() != 1 {
-		t.Errorf("Expected 1 but got %d", arr.Capacity())
-	}
-
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
+	assert.Equal(t, uint(1), arr.Size())
+	assert.Equal(t, uint(1), arr.Capacity())
+	assert.Equal(t, "a", arr.Lookup(0))
 
 	arr.Append("b")
 
-	if arr.Size() != 2 {
-		t.Errorf("Expected 2 but got %d", arr.Size())
-	}
-
-	if arr.Capacity() != 2 {
-		t.Errorf("Expected 2 but got %d", arr.Capacity())
-	}
-
-	if arr.Lookup(1) != "b" {
-		t.Errorf("Expected b but got %s", arr.Lookup(1))
-	}
+	assert.Equal(t, uint(2), arr.Size())
+	assert.Equal(t, uint(2), arr.Capacity())
+	assert.Equal(t, "b", arr.Lookup(1))
 
 	arr.Append("c")
 
-	if arr.Size() != 3 {
-		t.Errorf("Expected 3 but got %d", arr.Size())
-	}
-
-	if arr.Capacity() != 4 {
-		t.Errorf("Expected 4 but got %d", arr.Capacity())
-	}
-
-	if arr.Lookup(2) != "c" {
-		t.Errorf("Expected c but got %s", arr.Lookup(2))
-	}
-
-	fmt.Println(arr)
+	assert.Equal(t, uint(3), arr.Size())
+	assert.Equal(t, uint(4), arr.Capacity())
+	assert.Equal(t, "c", arr.Lookup(2))
 }
 
 func TestStringDynamicArr_Insert(t *testing.T) {
@@ -102,35 +61,13 @@ func TestStringDynamicArr_Insert(t *testing.T) {
 	arr.Insert(1, "b")
 	arr.Insert(2, "c")
 
-	if arr.Size() != 4 {
-		t.Errorf("Expected 4 but got %d", arr.Size())
-	}
-
-	if arr.Capacity() != 4 {
-		t.Errorf("Expected 4 but got %d", arr.Capacity())
-	}
-
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	if arr.Lookup(1) != "b" {
-		t.Errorf("Expected b but got %s", arr.Lookup(1))
-	}
-
-	if arr.Lookup(2) != "c" {
-		t.Errorf("Expected c but got %s", arr.Lookup(2))
-	}
-
-	if arr.Lookup(3) != "d" {
-		t.Errorf("Expected d but got %s", arr.Lookup(3))
-	}
-
-	defer func() {
-		_ = recover()
-	}()
-	arr.Insert(4, "d")
-	t.Error("The code did not panic")
+	assert.Equal(t, uint(4), arr.Size())
+	assert.Equal(t, uint(4), arr.Capacity())
+	assert.Equal(t, "a", arr.Lookup(0))
+	assert.Equal(t, "b", arr.Lookup(1))
+	assert.Equal(t, "c", arr.Lookup(2))
+	assert.Equal(t, "d", arr.Lookup(3))
+	assert.Panics(t, func() { arr.Insert(4, "d") })
 }
 
 func TestStringDynamicArr_Delete(t *testing.T) {
@@ -145,22 +82,9 @@ func TestStringDynamicArr_Delete(t *testing.T) {
 	arr.Delete(0)
 	arr.Delete(2)
 
-	if arr.Size() != 2 {
-		t.Errorf("Expected 2 but got %d", arr.Size())
-	}
-
-	if arr.Lookup(0) != "b" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	if arr.Lookup(1) != "c" {
-		t.Errorf("Expected empty string but got %s", arr.Lookup(1))
-	}
-
-	defer func() {
-		_ = recover()
-	}()
-
-	arr.Delete(2)
-	t.Error("The code did not panic")
+	assert.Equal(t, uint(2), arr.Size())
+	assert.Equal(t, uint(4), arr.Capacity())
+	assert.Equal(t, "b", arr.Lookup(0))
+	assert.Equal(t, "c", arr.Lookup(1))
+	assert.Panics(t, func() { arr.Delete(2) })
 }

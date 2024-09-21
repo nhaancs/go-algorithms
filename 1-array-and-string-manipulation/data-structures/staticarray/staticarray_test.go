@@ -3,6 +3,7 @@ package staticarray_test
 import (
 	"fmt"
 	"github.com/nhaancs/go-algorithms/1-array-and-string-manipulation/data-structures/staticarray"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -12,13 +13,11 @@ func TestStringStaticArr_New(t *testing.T) {
 	capacity := uint(3)
 	arr := staticarray.New(capacity)
 
-	if arr == nil {
-		t.Error("Failed to create new static array")
-	}
+	assert.NotNil(t, arr)
+	assert.Equal(t, capacity, arr.Capacity())
 
-	if arr.Capacity() != 3 {
-		t.Errorf("Expected %d but got %d", capacity, arr.Capacity())
-	}
+	_, err := fmt.Println(arr)
+	assert.NoError(t, err)
 }
 
 func TestStringStaticArr_Lookup(t *testing.T) {
@@ -27,18 +26,8 @@ func TestStringStaticArr_Lookup(t *testing.T) {
 	arr := staticarray.New(2)
 	arr.Append("a")
 
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	fmt.Println(arr)
-
-	defer func() {
-		_ = recover()
-	}()
-
-	arr.Lookup(1)
-	t.Error("The code did not panic")
+	assert.Equal(t, "a", arr.Lookup(0))
+	assert.Panics(t, func() { arr.Lookup(1) })
 }
 
 func TestStringStaticArr_Append(t *testing.T) {
@@ -49,24 +38,10 @@ func TestStringStaticArr_Append(t *testing.T) {
 	arr.Append("b")
 	arr.Append("c")
 
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	if arr.Lookup(1) != "b" {
-		t.Errorf("Expected b but got %s", arr.Lookup(1))
-	}
-
-	if arr.Lookup(2) != "c" {
-		t.Errorf("Expected c but got %s", arr.Lookup(2))
-	}
-
-	defer func() {
-		_ = recover()
-	}()
-
-	arr.Append("d")
-	t.Error("The code did not panic")
+	assert.Equal(t, "a", arr.Lookup(0))
+	assert.Equal(t, "b", arr.Lookup(1))
+	assert.Equal(t, "c", arr.Lookup(2))
+	assert.Panics(t, func() { arr.Append("d") })
 }
 
 func TestStringStaticArr_Insert(t *testing.T) {
@@ -78,35 +53,12 @@ func TestStringStaticArr_Insert(t *testing.T) {
 	arr.Insert(1, "b")
 	arr.Insert(2, "c")
 
-	if arr.Lookup(0) != "a" {
-		t.Errorf("Expected a but got %s", arr.Lookup(0))
-	}
-
-	if arr.Lookup(1) != "b" {
-		t.Errorf("Expected b but got %s", arr.Lookup(1))
-	}
-
-	if arr.Lookup(2) != "c" {
-		t.Errorf("Expected c but got %s", arr.Lookup(2))
-	}
-
-	if arr.Lookup(3) != "d" {
-		t.Errorf("Expected d but got %s", arr.Lookup(2))
-	}
-
-	defer func() {
-		if v := recover(); v == nil {
-			t.Error("The code did not panic")
-		}
-
-		defer func() {
-			if v := recover(); v == nil {
-				t.Error("The code did not panic")
-			}
-		}()
-		arr.Insert(4, "y")
-	}()
-	arr.Insert(2, "x")
+	assert.Equal(t, "a", arr.Lookup(0))
+	assert.Equal(t, "b", arr.Lookup(1))
+	assert.Equal(t, "c", arr.Lookup(2))
+	assert.Equal(t, "d", arr.Lookup(3))
+	assert.Panics(t, func() { arr.Insert(4, "e") })
+	assert.Panics(t, func() { arr.Insert(2, "x") })
 }
 
 func TestStringStaticArr_Delete(t *testing.T) {
@@ -118,14 +70,6 @@ func TestStringStaticArr_Delete(t *testing.T) {
 
 	arr.Delete(0)
 
-	if arr.Lookup(0) != "b" {
-		t.Errorf("Expected b but got %s", arr.Lookup(0))
-	}
-
-	defer func() {
-		_ = recover()
-	}()
-
-	arr.Delete(1)
-	t.Error("The code did not panic")
+	assert.Equal(t, "b", arr.Lookup(0))
+	assert.Panics(t, func() { arr.Delete(1) })
 }
