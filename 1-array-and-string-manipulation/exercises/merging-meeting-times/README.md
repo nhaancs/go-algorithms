@@ -97,7 +97,7 @@ We create a new array of merged meeting times. In the worst case, none of the me
 
 ## What We Learned
 
-This one arguably uses a greedy ↴ approach as well, except this time we had to sort the array first.
+This one arguably uses a greedy approach as well, except this time we had to sort the array first.
 
 How did we figure that out?
 
