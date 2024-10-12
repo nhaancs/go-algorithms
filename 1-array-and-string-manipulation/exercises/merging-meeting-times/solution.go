@@ -12,13 +12,14 @@ func MergeRanges(meetings []Meeting) []Meeting {
 		return meetings
 	}
 
-	// Sort the meetings by start time
+	// O(n) Sort the meetings by start time
 	sort.Slice(meetings, func(i, j int) bool {
 		return meetings[i].StartTime < meetings[j].StartTime
 	})
 
 	mergedMeetings := []Meeting{meetings[0]}
 
+	// O(n)
 	for i := 1; i < len(meetings); i++ {
 		currentMeeting := meetings[i]
 		lastMergedMeeting := &mergedMeetings[len(mergedMeetings)-1]
